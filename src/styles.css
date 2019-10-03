@@ -1,0 +1,210 @@
+.btn-secondary {
+  background-color: #807d80 !important;
+  border-color: #807d80 !important;
+}
+
+/*
+.btn {
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+*/
+.divpadding {
+  padding-top: 16px !important;
+  padding-bottom: 8px !important;
+}
+
+.divpaddinglftrit {
+  padding-right: 14px !important;
+  padding-left: 0px !important;
+}
+
+.tab-pane {
+  margin-top: 10px;
+}
+
+.col-form-label {
+  font-size: 12px !important;
+  color: #474747 !important;
+  padding: 9px !important;
+}
+
+.modal-body {
+  padding: 2px !important;
+}
+
+.textaligncenter {
+  text-align: center !important;
+}
+
+.textBold {
+  font-weight: bold !important;
+}
+
+.form-group {
+  margin-bottom: 1px !important;
+}
+
+.thead-default {
+  font-size: 12px !important;
+  color: #474747 !important;
+}
+
+.nav-link {
+  padding: 4px 4px 4px 4px !important;
+  font-size: 12px !important;
+}
+
+.backgroundColor {
+  background-color: rgb(232, 235, 236) !important;
+}
+
+.mainPadding {
+  padding: 30px;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+  padding: 5px;
+}
+
+.thbackground {
+  background-color: #b77033 !important;
+  color: white !important;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border: 0px !important;
+}
+
+.thbackgroundTransporter {
+  background-color: #265B89 !important;
+  color: white !important;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border: 0px !important;
+}
+
+.titleBckgroundTransporter {
+  background-color: #b9d1e6 !important;
+}
+
+.table-bordered {
+  border-top: 0px !important;
+  border-left: 0px !important;
+  border-right: 0px !important;
+}
+
+.titleBckground {
+  background-color: #f0e2d6 !important;
+}
+
+.margin-bottom {
+  margin-bottom: 0px !important;
+}
+
+.setFormsize {
+  font-size: 11px;
+}
+
+.lipaddingheight {
+  padding-top: 2px !important;
+  height: 20px !important;
+}
+
+.setliBGRed {
+  background-color: #eeb4b4 !important;
+}
+
+.setliBGGreen {
+  background-color: #a4d1a4 !important;
+}
+
+.setNavPadding {
+  padding-top: 5px !important;
+  padding-right: 5px !important;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+.btn-secondary {
+  background-color: #807d80 !important;
+  border-color: #807d80 !important;
+}
+
+.btn {
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+.divpadding {
+  padding-top: 16px !important;
+  /* padding-bottom: 8px!important; */
+}
+
+.divpaddinglftrit {
+  padding-right: 14px !important;
+  padding-left: 0px !important;
+}
+
+.tab-pane {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 7px !important;
+}
+
+.form-control {
+  padding: 3px 4px 4px 4px !important;
+  font-size: 12px !important;
+  height: 28px !important;
+}
+
+.col-form-label {
+  font-size: 12px !important;
+  color: #474747 !important;
+  padding: 9px !important;
+}
+
+.modal-body {
+  padding: 2px !important;
+}
+
+.textaligncenter {
+  text-align: center !important;
+}
+
+.textBold {
+  font-weight: bold !important;
+}
+
+.form-group {
+  margin-bottom: 1px !important;
+}
+
+.thead-default {
+  font-size: 12px !important;
+  color: #474747 !important;
+}
+
+.nav-link {
+  padding: 4px 4px 4px 4px !important;
+  font-size: 12px !important;
+}
+
+.backgroundColor {
+  background-color: rgb(232, 235, 236) !important;
+}
+
+.mainPadding {
+  padding: 30px;
+}
+
+.alert {
+  padding: 5px !important;
+  margin-bottom: 5px !important;
+}

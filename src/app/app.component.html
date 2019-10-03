@@ -1,0 +1,334 @@
+<div class="mainPadding">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h5 class="mb-0 panel-title">DMPK/CP</h5>
+    </div>
+    <div class="panel-body">
+      <div class="modal-body row">
+        <div class="col-md-12">
+          <app-selectcompound (OnprogramselectionChangedEvent)='OnSelectionChange($event)'></app-selectcompound>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h6 class="panel-title">CYP450 Data Input: Incyte drug as Victim</h6>
+                </div>
+                <div class="col-sm-4" *ngIf="isAdminTrue !== false">
+                  <a data-toggle="modal" *ngIf="Nodata !== true" data-target="#deleteRecord"
+                    (click)='setseletedItem(CYP450VictimData)' class="delLink">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body" *ngIf='Compound == null'>
+              Please select a Program and a compound.
+              <br />if there isn't any program or compound added. Please add them first before adding ADME Data.
+            </div>
+            <div class="panel-body" *ngIf='Compound != null'>
+              <form class="form-horizontal" role="form" #form="ngForm">
+                <div class="form-group row">
+                  <div class="alert alert-success col-sm-6 tab-pane" *ngIf='message'>
+                    <strong>Success!</strong> {{message}}
+                  </div>
+                  <div class="alert alert-danger col-sm-6 tab-pane" *ngIf='error'>
+                    <strong>Danger!</strong> {{error}}
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label textBold">Assay</label>
+                  <label class="col-sm-2 col-form-label textBold">Enzyme</label>
+                  <label class="col-sm-2 col-form-label textBold">Substrate</label>
+                  <label class="col-sm-2 col-form-label textBold">TNR%</label>
+                  <label class="col-sm-4 col-form-label textBold">Comment</label>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"> Reaction Phenotyping (Human Recombinant CYPs)</label>
+                  <label class="col-sm-2 col-form-label">1A2</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate1A2' name="Substrate1A2">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR1A2'
+                      name="TNR1A2" #TNR1A2Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment1A2' name="Comment1A2">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR1A2Model.touched && !TNR1A2Model.valid) ||
+                                                    (TNR1A2Model.touched && !TNR1A2Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">2B6</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate2B6' name="Substrate2B6">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR2B6'
+                      name="TNR2B6" #TNR2B6Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment2B6' name="Comment2B6">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR2B6Model.touched && !TNR2B6Model.valid) ||
+                                                    (TNR2B6Model.touched && !TNR2B6Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">2C8</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate2C8' name="Substrate2C8">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR2C8'
+                      name="TNR2C8" #TNR2C8Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment2C8' name="Comment2C8">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR2C8Model.touched && !TNR2C8Model.valid) ||
+                                                    (TNR2C8Model.touched && !TNR2C8Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">2C9</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate2C9' name="Substrate2C9">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR2C9'
+                      name="TNR2C9" #TNR2C9Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment2C9' name="Comment2C9">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR2C9Model.touched && !TNR2C9Model.valid) ||
+                                                    (TNR2C9Model.touched && !TNR2C9Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">2C19</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate2C19' name="Substrate2C19">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR2C19'
+                      name="TNR2C19" #TNR2C19Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment2C19' name="Comment2C19">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR2C19Model.touched && !TNR2C19Model.valid) ||
+                                                    (TNR2C19Model.touched && !TNR2C19Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">2D6</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate2D6' name="Substrate2D6">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR2D6'
+                      name="TNR2D6" #TNR2D6Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment2D6' name="Comment2D6">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR2D6Model.touched && !TNR2D6Model.valid) ||
+                                                    (TNR2D6Model.touched && !TNR2D6Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">3A4</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate3A4' name="Substrate3A4">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR3A4'
+                      name="TNR3A4" #TNR3A4Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment3A4' name="Comment3A4">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR3A4Model.touched && !TNR3A4Model.valid) ||
+                                                    (TNR3A4Model.touched && !TNR3A4Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">3A5</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <select class="form-control" [(ngModel)]='Substrate3A5' name="Substrate3A5">
+                      <option value="Most likely no">Most likely no</option>
+                      <option value="Minimal, if at all">Minimal, if at all</option>
+                      <option value="Most likely yes">Most likely yes</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" pattern="[-+]?[0-9]*\.?[0-9]*" [(ngModel)]='TNR3A5'
+                      name="TNR3A5" #TNR3A5Model="ngModel">
+                  </div>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='Comment3A5' name="Comment3A5">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-6 col-sm-2 divpaddinglftrit">
+                    <div *ngIf="(TNR3A5Model.touched && !TNR3A5Model.valid) ||
+                                                    (TNR3A5Model.touched && !TNR3A5Model.valid)"
+                      class="alert alert-danger alertBox">
+                      Only accept numbers
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row gap">&nbsp;</div>
+                <div class="form-group row">&nbsp;</div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">&nbsp;</label>
+                  <label class="col-sm-2 col-form-label">Range</label>
+                  <label class="col-sm-2 col-form-label">Most likely no</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='ParentRemain95' name="ParentRemain95">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">&nbsp;</label>
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">Minimal, if at all</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='ParentRemain85' name="ParentRemain85">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">&nbsp;</label>
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">Most likely yes</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='ParentRemain8520' name="ParentRemain8520">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">&nbsp;</label>
+                  <label class="col-sm-2 col-form-label"></label>
+                  <label class="col-sm-2 col-form-label">Yes</label>
+                  <div class="col-sm-2 divpaddinglftrit">
+                    <input class="form-control" type="text" [(ngModel)]='ParentRemain20' name="ParentRemain20">
+                  </div>
+                </div>
+                <div class="form-group row gap">&nbsp;</div>
+                <div class="form-group row">&nbsp;</div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">&nbsp;</label>
+                  <label class="col-sm-2 col-form-label">URL</label>
+                  <div class="col-sm-4 divpaddinglftrit">
+                    <textarea rows="2" class="form-control" type="text" [(ngModel)]='URL' name="URL">
+                    </textarea>
+                    <!-- <input class="form-control" type="text" [(ngModel)]='URL' name="URL"> -->
+                  </div>
+                </div>
+                <div class="form-group row divpadding">
+                  <div class="col-sm-offset-6 col-sm-6 divpaddinglftrit">
+                    <button type="submit" class="btn btn-primary" (click)='saveClick()' [disabled]="!form.valid">Save
+                      Record</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Delete Pop up HTML-->
+<div class="modal fade" id="deleteRecord" role="dialog">
+  <app-deleterecord [data]='seletedItem' (OnDeleteClickEvent)='OnDeleteChange($event)'></app-deleterecord>
+</div>

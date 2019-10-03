@@ -1,0 +1,21 @@
+.table tr.active td {
+  background-color: #eaf1f7 !important;
+  color: black;
+}
+
+.gap {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.delLink {
+  color: white !important;
+  float: right;
+  cursor: pointer;
+}
+
+/*Style .css */
+
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
